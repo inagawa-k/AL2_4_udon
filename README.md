@@ -29,4 +29,4 @@
 - 著作権は放棄していません
 - キャラクター保管所およびユドナリウムとは非保証の、個人が作ったツールです．ご利用は自己責任でお願いします
 - ライセンスはGPLv3です
-- 本アプレットは，[蛇口からうどん](https://saronpasu.github.io/trpg_pages/docs/ara/)をもとに作成しました
+- 本ブックマークレットは，[蛇口からうどん](https://saronpasu.github.io/trpg_pages/docs/ara/)をもとに作成しました
