@@ -118,7 +118,7 @@ javascript:(function(){
         mp_elem.setAttribute('type', 'numberResource');
         mp_elem.setAttribute('currentValue', mp);
         resource.appendChild(mp_elem);
-        resource.appendChild(createElem('行動力', action));
+        resource.appendChild(createElem('行動値', action));
         resource.appendChild(createElem('移動値', battlespeed));
         detail.appendChild(resource);
     
