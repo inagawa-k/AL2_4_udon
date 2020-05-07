@@ -56,13 +56,21 @@ javascript:(function(){
         }
         */
 
-        function createElem(name, value) {
+        function createElem(name, text) {
             elem = document.createElement('data');
             elem.setAttribute('name', name);
-            elem.innerText = value;
+            elem.innerText = text;
             return elem;
         }
 
+        function createNumRcElem(name, value) {
+            elem = document.createElement('data');
+            elem.setAttribute('name', name);
+            elem.innerText = value;
+            elem.setAttribute('type', 'numberResource');
+            elem.setAttribute('currentValue', value);
+            return elem;
+        }
 
         /* ここからメイン処理 */
 
@@ -71,7 +79,7 @@ javascript:(function(){
         char_name = getById(source, 'base.name');
         /* 能力値ボーナス */
         strong_b = getById(source, 'abl.strong.bonus');
-       reflex_b = getById(source, 'abl.reflex.bonus');
+        reflex_b = getById(source, 'abl.reflex.bonus');
         sense_b = getById(source, 'abl.sense.bonus');
         intellect_b = getById(source, 'abl.intellect.bonus');
         will_b = getById(source, 'abl.will.bonus');
@@ -85,6 +93,30 @@ javascript:(function(){
         hp = getById(source, 'outfits.total.hp');
         mp = getById(source, 'outfits.total.mp');
         battlespeed = getById(source, 'outfits.total.battlespeed.total').replace('m', '');
+        /* 加護 */
+        special1 = getById(source, 'abl.specialpower.1st');
+        s2 = getById(source, 'abl.specialpower.2nd');
+        if (s2 == special1) {
+            special2 = s2 + '2'
+        }
+        else {
+            special2 = s2
+        }
+        s3 = getById(source, 'abl.specialpower.3rd');
+        if (s3 == special1) {
+            if (s3 == s2) {
+                special3 = s3 + '3'
+            }
+            else {
+                special3 = s3 + '2'
+            }
+        }
+        else if (special3 == special2) {
+            special3 = s3 + '2'
+        }
+        else {
+            special3 =s3
+        }
 
         /* xml 作成 */
         xml = document.createElement('character');
@@ -96,7 +128,17 @@ javascript:(function(){
         char = document.createElement('data');
         char.setAttribute('name', 'character');
 
-        /* common (キャラクター名) 要素を作成 */
+        /* img 要素を作成し，char の子ノードとする */
+        img = document.createElement('data');
+        img.setAttribute('name', 'image');
+        elem = document.createElement('data');
+        elem.setAttribute('type', 'image');
+        elem.setAttribute('name', 'imageIdentifier');
+        elem.innerText = 'null';
+        img.appendChild(elem);
+        char.appendChild(img);
+
+        /* common (キャラクター名) 要素を作成し，char の子ノードとする */
         common = document.createElement('data');
         common.setAttribute('name', 'common');      
         common.appendChild(createElem('name', char_name));
@@ -110,14 +152,8 @@ javascript:(function(){
         /* resource (HP, MP, 行動値，移動値)要素を作成し，detail の子ノードとする */
         resource = document.createElement('data');
         resource.setAttribute('name', 'リソース');
-        hp_elem = createElem('HP', hp);
-        hp_elem.setAttribute('type', 'numberResource');
-        hp_elem.setAttribute('currentValue', hp);
-        resource.appendChild(hp_elem);
-        mp_elem = createElem('MP', mp);
-        mp_elem.setAttribute('type', 'numberResource');
-        mp_elem.setAttribute('currentValue', mp);
-        resource.appendChild(mp_elem);
+        resource.appendChild(createNumRcElem('HP', hp));
+        resource.appendChild(createNumRcElem('MP', mp));
         resource.appendChild(createElem('行動値', action));
         resource.appendChild(createElem('移動値', battlespeed));
         detail.appendChild(resource);
@@ -144,6 +180,14 @@ javascript:(function(){
         outfits.appendChild(createElem('耐久', hp));
         outfits.appendChild(createElem('精神', mp));
         detail.appendChild(outfits);
+
+        /* special (加護) 要素を作成し，detail の子ノードとする */
+        special = document.createElement('data');
+        special.setAttribute('name', '加護');
+        special.appendChild(createNumRcElem(special1, 1));
+        special.appendChild(createNumRcElem(special2, 1));
+        special.appendChild(createNumRcElem(special3, 1));
+        detail.appendChild(special);
 
         /* チャットパレットの生成 */
         cpd = document.createElement('chat-palette');
