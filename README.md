@@ -2,7 +2,7 @@
 
 ## 使い方
 
-1. [アルシャードセイヴァー キャラシサイトからユドナリウムのコマをツクールくん.html](https://raw.githubusercontent.com/inagawa-k/AL2_4_udon/master/AL2%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%B7%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8B%E3%82%89%E3%83%A6%E3%83%89%E3%83%8A%E3%83%AA%E3%82%A6%E3%83%A0%E3%81%AE%E3%82%B3%E3%83%9E%E3%82%92%E4%BD%9C%E3%82%8B%E3%82%84%E3%81%A4.html)をダウンロード(Chromeであれば，左のリンクを右クリックして「名前を付けてリンク先を保存」)
+1. [index.html](https://raw.githubusercontent.com/inagawa-k/AL2_4_udon/master/AL2%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%B7%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8B%E3%82%89%E3%83%A6%E3%83%89%E3%83%8A%E3%83%AA%E3%82%A6%E3%83%A0%E3%81%AE%E3%82%B3%E3%83%9E%E3%82%92%E4%BD%9C%E3%82%8B%E3%82%84%E3%81%A4.html)をダウンロード(Chromeであれば，左のリンクを右クリックして「名前を付けてリンク先を保存」)
 1. ダウンロードしたファイルをブラウザで開く
 1. 「蛇口からうどん for AL2」をブックマークバーにドラックアンドドロップ
 1. [アルシャードセイヴァー　クエスター登録サイト](https://character-sheets.appspot.com/al2/edit.html)で自分のキャラシを開く
