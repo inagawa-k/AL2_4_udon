@@ -111,11 +111,11 @@ javascript:(function(){
                 special3 = s3 + '2'
             }
         }
-        else if (special3 == special2) {
+        else if (s3 == special2) {
             special3 = s3 + '2'
         }
         else {
-            special3 =s3
+            special3 = s3
         }
 
         /* xml 作成 */
@@ -184,9 +184,9 @@ javascript:(function(){
         /* special (加護) 要素を作成し，detail の子ノードとする */
         special = document.createElement('data');
         special.setAttribute('name', '加護');
-        special.appendChild(createNumRcElem(special1, 1));
-        special.appendChild(createNumRcElem(special2, 1));
-        special.appendChild(createNumRcElem(special3, 1));
+        special.appendChild(createElem(special1, 1));
+        special.appendChild(createElem(special2, 1));
+        special.appendChild(createElem(special3, 1));
         detail.appendChild(special);
 
         /* チャットパレットの生成 */
